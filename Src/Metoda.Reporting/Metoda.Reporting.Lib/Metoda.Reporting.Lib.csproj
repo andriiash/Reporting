@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Res\fonts\CALIBRI.TTF" />
+    <None Remove="Res\fonts\CALIBRIB.TTF" />
+    <None Remove="Res\fonts\CALIBRII.TTF" />
+    <None Remove="Res\images\logo_m.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Res\fonts\CALIBRI.TTF" />
+    <EmbeddedResource Include="Res\fonts\CALIBRIB.TTF" />
+    <EmbeddedResource Include="Res\fonts\CALIBRII.TTF" />
+    <EmbeddedResource Include="Res\images\logo_m.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="itext7" Version="7.2.5" />
+  </ItemGroup>
+
+</Project>

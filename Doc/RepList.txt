@@ -1,0 +1,51 @@
+[https://www.color-hex.com/]
+
+[https://www.svgrepo.com/]
+
+[https://www.cssgradient.io/]
+
+
+1. Accordato diverso da utilizzato per operazioni in pool
+2. Accordato Magg Utilizzato Osenza Utilizzato
+3. Altri Crediti ma Deteriorati
+4. Assenza Censito Collegato
+5. Garanzie connesse con operazioni di natura commerciale
+6. Incongruenza tra durata originaria e residua
+7. Presenza di pool capofila e non pool totale o viceversa
+8. Riepilogo Prospetto Andamentale
+9. Sconfinamenti
+10. Sconfinamenti Operativi
+11. Segnalazione inadempienze probabili per soggetto
+12. Sofferenze segnalate con altri fenomeni
+13. Stampa PDF Segnalazione Mensile
+14. Tipo attività incompatibile con Rischi a scadenza
+
+1. Agreed other than used for pooled transactions	//	AgreedOtherThanUsedForPooledTransactions
+2. Granted Major Used Or Without Used	//	GrantedMajorUsedOrNonUsed
+3. Other Credits but Impaired		//	OtherCreditsButImpaired
+4. Absence Registered Connected	//	AbsenceRegisteredConnected	
+5. Guarantees connected with operations of a commercial nature	//	GuaranteesConnectedWithOperationsOfACommercialNature	
+6. Inconsistency between original and residual duration	//	InconsistencyBetweenOriginalAndResidualDuration
+7. Presence of lead pool and not total pool or vice versa	//	PresenceOfLeadPoolAndNotTotalPoolOrViceVersa
+8. Summary of Performance Statement		//	SummaryOfPerformanceStatement	
+9. Trespassing	//	Trespassing
+10. Operational Overruns	//	OperationalOverruns
+11. Reporting unlikely to pay by subject	//	ReportingUnlikelyToPayBySubject
+12. Sufferings reported with other phenomena	//	SufferingsReportedWithOtherPhenomena
+13. Print PDF Monthly Report	//	MonthlyReport
+14. Type of activity incompatible with Risks at maturity	//	TypeOfActivityIncompatibleWithRisksAtMaturity
+
+1. Согласовано, кроме использования для объединенных транзакций
+2. Предоставленный майор используется или не используется
+3. Прочие кредиты, но обесцененные
+4. Отсутствие Зарегистрировано Подключено
+5. Гарантии, связанные с операциями коммерческого характера
+6. Несоответствие между первоначальной и остаточной длительностью
+7. Наличие лид-пула, а не общего пула или наоборот
+8. Резюме заявления о производительности
+9. Незаконное проникновение
+10. Операционные перерасходы
+11. Отчетность вряд ли будет оплачена по теме
+12. Сообщается о страданиях с другими явлениями
+13. Распечатать ежемесячный отчет в формате PDF
+14. Вид деятельности, несовместимый с рисками при наступлении срока погашения

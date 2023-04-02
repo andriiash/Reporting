@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="AgreedOtherThanUsedForPooledTransactions\" />
+    <Folder Include="GrantedMajorUsedOrNonUsed\" />
+    <Folder Include="GuaranteesConnectedWithOperationsOfACommercialNature\" />
+    <Folder Include="InconsistencyBetweenOriginalAndResidualDuration\" />
+    <Folder Include="MonthlyReport\" />
+    <Folder Include="TypeOfActivityIncompatibleWithRisksAtMaturity\" />
+    <Folder Include="SufferingsReportedWithOtherPhenomena\" />
+    <Folder Include="ReportingUnlikelyToPayBySubject\" />
+    <Folder Include="OperationalOverruns\" />
+    <Folder Include="Trespassing\" />
+    <Folder Include="SummaryOfPerformanceStatement\" />
+    <Folder Include="PresenceOfLeadPoolAndNotTotalPoolOrViceVersa\" />
+    <Folder Include="OtherCreditsButImpaired\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Metoda.Reporting.Lib\Metoda.Reporting.Lib.csproj" />
+  </ItemGroup>
+
+</Project>
