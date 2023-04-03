@@ -1,27 +1,25 @@
-﻿using System;
-using iText.IO.Font;
+﻿using iText.IO.Font;
 using iText.Kernel.Events;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
+using iText.Layout;
 using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using System.IO;
-using System.Linq;
 using Metoda.Reporting.Lib.Base.Contracts;
 using Metoda.Reporting.Lib.PdfHandlers;
 using Metoda.Reporting.Lib.Res;
-
-using iText.Layout;
+using System;
+using System.IO;
 
 namespace Metoda.Reporting.Lib.Base
 {
     public abstract class ReportBase : IReportBase
     {
-        protected PdfFont _regular = PdfFontFactory.CreateFont(Resource.CALIBRI, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
-        protected PdfFont _bold = PdfFontFactory.CreateFont(Resource.CALIBRIB, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
-        protected PdfFont _italic = PdfFontFactory.CreateFont(Resource.CALIBRII, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+        public static PdfFont RegularFont = PdfFontFactory.CreateFont(Resource.CALIBRI, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+        public static PdfFont BoldFont = PdfFontFactory.CreateFont(Resource.CALIBRIB, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+        public static PdfFont ItalicFont = PdfFontFactory.CreateFont(Resource.CALIBRII, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
         protected float _tableWidth = 100f;
 
         public string Title { get; set; }
@@ -93,7 +91,7 @@ namespace Metoda.Reporting.Lib.Base
                                .SetWidth(UnitValue.CreatePercentValue(_tableWidth))
                                .SetBorder(Border.NO_BORDER)
                                .SetFontSize(11f)
-                               .SetFont(_bold);
+                               .SetFont(BoldFont);
             Cell cell = new Cell(1, 2)
                 .SetBorder(Border.NO_BORDER)
                 .SetFontSize(12f)
@@ -120,7 +118,7 @@ namespace Metoda.Reporting.Lib.Base
 
         private void RenderHeader(PdfDocument pdfDoc, Document doc)
         {
-            TableHeaderEventHandler headerHandler = new TableHeaderEventHandler(doc, _regular);
+            TableHeaderEventHandler headerHandler = new TableHeaderEventHandler(doc, RegularFont);
             pdfDoc.AddEventHandler(PdfDocumentEvent.START_PAGE, headerHandler);
         }
 

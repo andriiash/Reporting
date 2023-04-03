@@ -12,8 +12,6 @@ namespace Metoda.Reporting.Lib.Base
     {
         public ReportTable<T> Table { get; private set; }
 
-        protected virtual float[] ColWidths { get; set; } = null;
-
         public TabledReport(string title, string companyName, DateTime refDate, ReportTable<T> table)
             : base(title, companyName, refDate)
         {
@@ -22,8 +20,16 @@ namespace Metoda.Reporting.Lib.Base
 
         protected override void RenderDetailsTable(Document doc)
         {
-            var columns = Table.GetColumnArray();
-            var colWidths = ColWidths ?? Enumerable.Repeat(1f, columns.Length).ToArray();
+            Table tableDetals = RenderTable();
+            Table.PrintToPdf(tableDetals);
+
+            doc.Add(tableDetals);
+        }
+
+        private Table RenderTable()
+        {
+            var columns = Table.Columns.Select(_ => _.DisplayName).ToArray();
+            var colWidths = Table.Columns.Select(_ => _.ColWidth).ToArray();
             var borderWidth = new SolidBorder(1.0f);
 
             Table tableDetals = new Table(UnitValue.CreatePercentArray(colWidths))
@@ -32,7 +38,7 @@ namespace Metoda.Reporting.Lib.Base
                .SetFontSize(8f)
                .SetTextAlignment(TextAlignment.CENTER)
                .SetVerticalAlignment(VerticalAlignment.MIDDLE)
-               .SetFont(_regular)
+               .SetFont(RegularFont)
                .SetPaddingTop(10f);
 
             #region Table Details Header 
@@ -41,7 +47,7 @@ namespace Metoda.Reporting.Lib.Base
             for (int i = 0; i < columns.Length; i++)
             {
                 cell = new Cell()
-                    .SetFont(_bold)
+                    .SetFont(BoldFont)
                     .Add(new Paragraph(columns[i]).SetMultipliedLeading(0.9f))
                     .SetBorderBottom(borderWidth)
                     .SetVerticalAlignment(VerticalAlignment.MIDDLE);
@@ -49,17 +55,7 @@ namespace Metoda.Reporting.Lib.Base
                 tableDetals.AddHeaderCell(cell);
             }
             #endregion Table Details Header
-
-            foreach (var item in Table.Items)
-            {
-                foreach (var val in item.GetValueArray(Table.ItemInfo))
-                {
-                    cell = new Cell().Add(new Paragraph(val).SetMultipliedLeading(0.9f));
-                    tableDetals.AddCell(cell);
-                }
-            }
-
-            doc.Add(tableDetals);
+            return tableDetals;
         }
     }
 }

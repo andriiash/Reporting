@@ -5,7 +5,7 @@ namespace Metoda.Reporting.Models.AbsenceRegisteredConnected
 {
     public class AbsenceRegisteredConnectedReport : TabledReport<AbsenceRegisteredConnectedItem>
     {
-        protected override float[] ColWidths { get; set; } = new float[] { 2f, 5f, 1f, 1f, 1f };
+      //  protected override float[] ColWidths { get; set; } = new float[] { 2f, 5f, 1f, 1f, 1f };
 
         public AbsenceRegisteredConnectedReport(ReportTable<AbsenceRegisteredConnectedItem> table)
             : base(

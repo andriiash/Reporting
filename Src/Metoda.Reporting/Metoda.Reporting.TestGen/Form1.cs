@@ -30,10 +30,10 @@ namespace Metoda.Reporting.TestGen
 
         public ReportTable<AbsenceRegisteredConnectedItem> GetTable()
         {
-            var res = new ReportTable<AbsenceRegisteredConnectedItem>();
+            var res = new ReportTable<AbsenceRegisteredConnectedItem>(hasTotal: true);
 
             Random random = new Random();
-            int accordato, utilizzato;
+            decimal accordato, utilizzato;
 
             for (int i = 0; i < 20; i++)
             {
@@ -41,11 +41,11 @@ namespace Metoda.Reporting.TestGen
                 utilizzato = random.Next(1000, 4000);
                 res.Items.Add(new AbsenceRegisteredConnectedItem
                 {
-                    Accordato = accordato.ToString(),
+                    Accordato = accordato,
                     CodCensito = $"{accordato} - Soggetto A",
                     Cubo = $"{random.Next(1000, 10000)} - Soggetto A",
-                    Utilizzato = utilizzato.ToString(),
-                    Delta = (accordato - utilizzato).ToString()
+                    Utilizzato = utilizzato,
+                    Delta = (accordato - utilizzato)
                 });
             }
 

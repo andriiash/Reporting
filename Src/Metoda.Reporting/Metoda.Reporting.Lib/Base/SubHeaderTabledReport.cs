@@ -31,7 +31,7 @@ namespace Metoda.Reporting.Lib.Base
             table.AddCell(cell);
 
             Text dataLabel = new Text("Codice Controparte: ");
-            Text dataValue = new Text("CTP123456789012 – Società XY").SetFont(_regular);
+            Text dataValue = new Text("CTP123456789012 – Società XY").SetFont(ReportBase.RegularFont);
 
             cell = new Cell(1, 2)
                 .SetBorder(Border.NO_BORDER)
@@ -47,7 +47,7 @@ namespace Metoda.Reporting.Lib.Base
             table.AddCell(cell);
 
             dataLabel = new Text("NDG: ");
-            dataValue = new Text("0000000309169701").SetFont(_regular);
+            dataValue = new Text("0000000309169701").SetFont(ReportBase.RegularFont);
 
             cell = new Cell(1, 2)
                 .SetBorder(Border.NO_BORDER)
