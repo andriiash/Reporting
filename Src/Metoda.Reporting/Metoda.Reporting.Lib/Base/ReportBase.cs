@@ -17,9 +17,9 @@ namespace Metoda.Reporting.Lib.Base
 {
     public abstract class ReportBase : IReportBase
     {
-        public static PdfFont RegularFont = PdfFontFactory.CreateFont(Resource.CALIBRI, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
-        public static PdfFont BoldFont = PdfFontFactory.CreateFont(Resource.CALIBRIB, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
-        public static PdfFont ItalicFont = PdfFontFactory.CreateFont(Resource.CALIBRII, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+        protected readonly PdfFont RegularFont = PdfFontFactory.CreateFont(Resource.CALIBRI, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+        protected readonly PdfFont BoldFont = PdfFontFactory.CreateFont(Resource.CALIBRIB, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+        protected readonly PdfFont ItalicFont = PdfFontFactory.CreateFont(Resource.CALIBRII, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
         protected float _tableWidth = 100f;
 
         public string Title { get; set; }

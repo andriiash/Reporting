@@ -94,9 +94,9 @@ namespace Metoda.Reporting.Lib.Res
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] logo_m {
+        internal static byte[] logo_metoda {
             get {
-                object obj = ResourceManager.GetObject("logo_m", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_metoda", resourceCulture);
                 return ((byte[])(obj));
             }
         }

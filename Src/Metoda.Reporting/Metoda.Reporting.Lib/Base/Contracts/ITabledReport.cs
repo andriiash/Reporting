@@ -1,7 +1,11 @@
-﻿namespace Metoda.Reporting.Lib.Base.Contracts
+﻿using System.Collections.Generic;
+
+namespace Metoda.Reporting.Lib.Base.Contracts
 {
-    public interface ITabledReport<T> : IReportBase where T : IReportTableItem
+    public interface ITabledReport<T, RT> : IReportBase
+        where RT : IReportTable<T>
+        where T : IReportTableItem
     {
-        ReportTable<T> Table { get; }
+        IList<RT> TableList { get; }
     }
 }

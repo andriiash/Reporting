@@ -8,6 +8,6 @@ namespace Metoda.Reporting.Lib.Base.Contracts
     {
         IList<ReportColumn> Columns { get; }
         IList<I> Items { get; }
-        void PrintToPdf(Table table);
+        void PrintToPdf(Table table, bool hasTotal = true);
     }
 }

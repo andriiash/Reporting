@@ -9,7 +9,10 @@ namespace Metoda.Reporting.Lib.Base
     {
         public string[] GetValueArray(IList<PropertyInfo> itemInfo)
         {
-            return itemInfo.Select(_ => _.GetValue(this)?.ToString()).ToArray();
+            return itemInfo.Select(_ =>
+            _.PropertyType == typeof(decimal)
+                ? ((decimal)(_.GetValue(this) ?? 0)).ToString("N2", new System.Globalization.CultureInfo("it-IT"))
+                : _.GetValue(this)?.ToString()).ToArray();
         }
     }
 }

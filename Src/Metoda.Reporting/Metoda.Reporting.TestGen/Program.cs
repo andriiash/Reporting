@@ -16,7 +16,7 @@ namespace Metoda.Reporting.TestGen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmMainReports());
         }
     }
 }

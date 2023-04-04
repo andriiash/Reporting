@@ -17,7 +17,8 @@ namespace Metoda.Reporting.Lib.PdfHandlers
 {
     public class TableHeaderEventHandler : IEventHandler
     {
-        private Table _table;
+        private Table _1stPageTable;
+        private Table _otherPagesTable;
         private float _tableHeight;
         private Document _doc;
         private PdfFont _font;
@@ -25,10 +26,16 @@ namespace Metoda.Reporting.Lib.PdfHandlers
         public TableHeaderEventHandler(Document doc, PdfFont font)
         {
             _doc = doc;
-            _font = font;
-            InitTable();
-            TableRenderer renderer = (TableRenderer)_table.CreateRendererSubTree();
+            _font = font;            
+            _1stPageTable = GetHeaderTable(true);
+            _otherPagesTable = GetHeaderTable();
+           
+            TableRenderer renderer = (TableRenderer)_1stPageTable.CreateRendererSubTree();
             renderer.SetParent(new DocumentRenderer(doc));
+
+            renderer = (TableRenderer)_otherPagesTable.CreateRendererSubTree();
+            renderer.SetParent(new DocumentRenderer(doc));
+
             LayoutResult result = renderer.Layout(new LayoutContext(new LayoutArea(0, PageSize.A4)));
             _tableHeight = result.GetOccupiedArea().GetBBox().GetHeight();
         }
@@ -39,6 +46,7 @@ namespace Metoda.Reporting.Lib.PdfHandlers
             PdfDocument pdfDoc = docEvent.GetDocument();
             PdfPage page = docEvent.GetPage();
             int pageNum = docEvent.GetDocument().GetPageNumber(page);
+            var table = (pageNum == 1) ? _1stPageTable : _otherPagesTable;            
             PdfCanvas canvas = new PdfCanvas(page.NewContentStreamBefore(), page.GetResources(), pdfDoc);
             PageSize pageSize = pdfDoc.GetDefaultPageSize();
             float coordX = pageSize.GetX() + _doc.GetLeftMargin();
@@ -46,7 +54,8 @@ namespace Metoda.Reporting.Lib.PdfHandlers
             float width = pageSize.GetWidth() - _doc.GetRightMargin() - _doc.GetLeftMargin();
             float height = GetTableHeight();
             Rectangle rect = new Rectangle(coordX, coordY, width, height);
-            new Canvas(canvas, rect).Add(_table).Close();
+            
+            new Canvas(canvas, rect).Add(table).Close();
         }
 
         public float GetTableHeight()
@@ -54,9 +63,9 @@ namespace Metoda.Reporting.Lib.PdfHandlers
             return _tableHeight;
         }
 
-        private void InitTable()
+        private Table GetHeaderTable(bool _isFirst = false)
         {
-            _table = new Table(2)
+            Table table = new Table(2)
                 .SetWidth(UnitValue.CreatePercentValue(100f))
                 .SetBorder(Border.NO_BORDER)
                 .SetFontSize(11f)
@@ -67,24 +76,28 @@ namespace Metoda.Reporting.Lib.PdfHandlers
                 .SetBorder(Border.NO_BORDER)
                 .SetHorizontalAlignment(HorizontalAlignment.LEFT);
 
-            Image image = new Image(ImageDataFactory.Create(Resource.logo_m))
+            Image image = new Image(ImageDataFactory.Create(Resource.logo_metoda))
                 .SetHeight(24f)
                 .SetPaddingLeft(10f);
 
             cell.Add(image);
-            _table.AddCell(cell);
+            table.AddCell(cell);
 
             cell = new Cell()
                 .SetBorder(Border.NO_BORDER)
                 .SetTextAlignment(TextAlignment.RIGHT)
                 .SetVerticalAlignment(VerticalAlignment.BOTTOM);
 
-            Paragraph p = new Paragraph($"Data Stampa: {DateTime.Now.ToString("dd/MM/yyyy hh:mm")}")
-                .SetPaddingRight(10f);
+            if (_isFirst)
+            {
+                Paragraph p = new Paragraph($"Data Stampa: {DateTime.Now.ToString("dd/MM/yyyy")}");
+                cell.Add(p);
+            }
 
-            cell.Add(p);
-            _table.AddCell(cell);
-            _table.SetMarginBottom(5f);
+            table.AddCell(cell);
+            table.SetMarginBottom(5f);
+
+            return table;
         }
     }
 

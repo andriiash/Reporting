@@ -1,33 +1,31 @@
-﻿using iText.Layout.Borders;
+﻿using iText.IO.Font;
+using iText.Kernel.Font;
+using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using Metoda.Reporting.Lib.Attributes;
 using Metoda.Reporting.Lib.Base.Contracts;
+using Metoda.Reporting.Lib.Res;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace Metoda.Reporting.Lib.Base
 {
 
     public class ReportTable<T> : IReportTable<T> where T : IReportTableItem
     {
-        protected readonly bool _hasTotal;
         public IList<ReportColumn> Columns { get; private set; }
         public IList<T> Items { get; private set; }
 
-        public ReportTable(IList<T> items = null, bool hasTotal = false)
+        public ReportTable(IList<T> items = null)
         {
-            _hasTotal = hasTotal;
             Items = items ?? new List<T>();
             Columns = OutputOrderAttribute.GetReportColumns(typeof(T));
         }
 
-        public void PrintToPdf(Table table)
+        public virtual void PrintToPdf(Table table, bool hasTotal = true)
         {
             var propInfos = Columns.Select(_ => _.PropInfo).ToList();
 
@@ -35,25 +33,30 @@ namespace Metoda.Reporting.Lib.Base
             {
                 foreach (var val in item.GetValueArray(propInfos))
                 {
-                    Cell cell = new Cell().Add(new Paragraph(val).SetMultipliedLeading(0.9f));
+                    Cell cell = new Cell()
+                        .Add(new Paragraph(val).SetMultipliedLeading(0.9f))
+                        .SetVerticalAlignment(VerticalAlignment.MIDDLE);
+
                     table.AddCell(cell);
                 }
             }
 
-            if (_hasTotal)
+            if (hasTotal)
             {
-                PrintTotalToPdf(table);
+                PrintTotalToPdf(table, Columns, Items, "Totale");
             }
         }
 
-        protected virtual void PrintTotalToPdf(Table table)
+        public static void PrintTotalToPdf(Table table, IList<ReportColumn> cols, IList<T> items, string totalLabel)
         {
+            var boldFont = PdfFontFactory.CreateFont(Resource.CALIBRIB, PdfEncodings.WINANSI, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+            
             var borderWidth = new SolidBorder(1.0f);
-            var totalCols = Columns.TakeWhile(c => !c.IsInTotal);
+            var totalCols = cols.TakeWhile(c => !c.IsInTotal);
 
             Cell cell = new Cell(1, totalCols.Count())
-                    .SetFont(ReportBase.BoldFont)
-                    .Add(new Paragraph("Total"))
+                    .SetFont(boldFont)
+                    .Add(new Paragraph(totalLabel))
                     .SetBorderBottom(borderWidth)
                     .SetBorderTop(borderWidth)
                     .SetTextAlignment(TextAlignment.RIGHT)
@@ -62,14 +65,14 @@ namespace Metoda.Reporting.Lib.Base
 
             table.AddCell(cell);
 
-            var sumColsForTotal = Columns.SkipWhile(c => !c.IsInTotal);
+            var sumColsForTotal = cols.SkipWhile(c => !c.IsInTotal);
 
             foreach (var column in sumColsForTotal)
             {
-                string cellText = GetCellValue(column);
+                string cellText = GetCellValue(column, items);
 
                 cell = new Cell()
-                    .SetFont(ReportBase.BoldFont)
+                    .SetFont(boldFont)
                     .Add(new Paragraph(cellText).SetMultipliedLeading(0.9f))
                     .SetBorderBottom(borderWidth)
                     .SetBorderTop(borderWidth)
@@ -79,7 +82,7 @@ namespace Metoda.Reporting.Lib.Base
             }
         }
 
-        private string GetCellValue(ReportColumn column)
+        private static string GetCellValue(ReportColumn column, IList<T> items)
         {
             //if (!column.IsInTotal)
             //{
@@ -89,7 +92,7 @@ namespace Metoda.Reporting.Lib.Base
             Type valListType = typeof(List<>).MakeGenericType(column.PropInfo.PropertyType);
             IList valList = (IList)Activator.CreateInstance(valListType);
 
-            foreach (var item in Items)
+            foreach (var item in items)
             {
                 object propValue = column.PropInfo.GetValue(item);
                 valList.Add(propValue);
@@ -97,15 +100,15 @@ namespace Metoda.Reporting.Lib.Base
 
             if (column.PropInfo.PropertyType == typeof(int))
             {
-                return valList.Cast<int>().Sum().ToString();
+                return valList.Cast<int>().Sum().ToString(new System.Globalization.CultureInfo("it-IT"));
             }
             else if (column.PropInfo.PropertyType == typeof(decimal))
             {
-                return valList.Cast<decimal>().Sum().ToString();
+                return valList.Cast<decimal>().Sum().ToString("N2", new System.Globalization.CultureInfo("it-IT"));
             }
             else if (column.PropInfo.PropertyType == typeof(long))
             {
-                return valList.Cast<long>().Sum().ToString();
+                return valList.Cast<long>().Sum().ToString(new System.Globalization.CultureInfo("it-IT"));
             }
 
             return string.Empty;

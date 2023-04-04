@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/Doc/.~lock.Doc_tree.ods#
+/Sample_Docs/Accordato diverso da utilizzato per operazioni in pool/.~lock.Stampa pdf_Accordato diverso da utilizzato per operazioni in pool.docx#
+/Sample_Docs/Accordato diverso da utilizzato per operazioni in pool/.~lock.Accordato diverso da utilizzato per operazioni in pool.xlsx#
+*.docx#

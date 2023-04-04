@@ -1,35 +1,60 @@
-﻿using System;
+﻿using iText.Layout;
 using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using System.Linq;
 using Metoda.Reporting.Lib.Base.Contracts;
-using iText.Layout;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Metoda.Reporting.Lib.Base
 {
-    public abstract class TabledReport<T> : ReportBase, ITabledReport<T> where T : IReportTableItem
-    {
-        public ReportTable<T> Table { get; private set; }
+    public abstract class TabledReport<T, RT> : ReportBase, ITabledReport<T, RT> 
+        where RT : ReportTable<T>
+        where T : IReportTableItem
 
-        public TabledReport(string title, string companyName, DateTime refDate, ReportTable<T> table)
+    {
+        public IList<RT> TableList { get; private set; }
+
+        public TabledReport(string title, string companyName, DateTime refDate, IList<RT> tableList)
             : base(title, companyName, refDate)
         {
-            Table = table;
+            TableList = tableList;
         }
 
         protected override void RenderDetailsTable(Document doc)
         {
-            Table tableDetals = RenderTable();
-            Table.PrintToPdf(tableDetals);
+            if (TableList.Count > 0)
+            {
+                Table tableDetals = RenderTable(TableList[0]);
 
-            doc.Add(tableDetals);
+                foreach (var item in TableList)
+                {
+                    item.PrintToPdf(tableDetals);
+                }
+
+                if (TableList.Count > 1)
+                {
+                    ReportTable<T>.PrintTotalToPdf(
+                        tableDetals, 
+                        TableList[0].Columns, 
+                        TableList.SelectMany(_ => _.Items).ToList(),
+                        "Somma totale"
+                                );
+                }
+
+                doc.Add(tableDetals);
+            }
+            else
+            {
+                doc.Add(new Paragraph("NO DATA TO DISPLAY").SetFont(ItalicFont).SetBold().SetFontSize(14f));
+            }
         }
 
-        private Table RenderTable()
+        private Table RenderTable(RT pdfTable)
         {
-            var columns = Table.Columns.Select(_ => _.DisplayName).ToArray();
-            var colWidths = Table.Columns.Select(_ => _.ColWidth).ToArray();
+            var columns = pdfTable.Columns.Select(_ => _.DisplayName).ToArray();
+            var colWidths = pdfTable.Columns.Select(_ => _.ColWidth).ToArray();
             var borderWidth = new SolidBorder(1.0f);
 
             Table tableDetals = new Table(UnitValue.CreatePercentArray(colWidths))
