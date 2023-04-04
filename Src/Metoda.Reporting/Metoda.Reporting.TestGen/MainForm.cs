@@ -98,20 +98,111 @@ namespace Metoda.Reporting.TestGen
             }
         }
 
+        private void btnGuaranteesConnectedWithOperationsOfACommercialNature_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dest = $"{dataFolder}/GARANZIE_CONNESSE_CON_OPERAZIONI_DI_NATURA_COMMERCIALE_{DateTime.Now.Ticks}.pdf";
+                var report = new GuaranteesConnectedWithOperationsOfACommercialNatureReport(
+                 title: "GARANZIE CONNESSE CON OPERAZIONI DI NATURA COMMERCIALE",
+                 companyName: "09999 - Banca di Prova",
+                 refDate: new DateTime(2018, 09, 30),
+                 tableList: GuaranteesConnectedWithOperationsOfACommercialNatureReport.GetFakeTable());
+
+                report.ToPdf(dest);
+                MessageBox.Show("Pdf generation has been completed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnInconsistencyBetweenOriginalAndResidualDuration_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dest = $"{dataFolder}/INCONGRUENZA_TRA_DURATA_ORIGINARIA_E_RESIDUA_{DateTime.Now.Ticks}.pdf";
+                var report = new InconsistencyBetweenOriginalAndResidualDurationReport(
+                 title: "INCONGRUENZA TRA DURATA ORIGINARIA E RESIDUA",
+                 companyName: "09999 - Banca di Prova",
+                 refDate: new DateTime(2018, 09, 30),
+                 tableList: InconsistencyBetweenOriginalAndResidualDurationReport.GetFakeTable());
+
+                report.ToPdf(dest);
+                MessageBox.Show("Pdf generation has been completed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dest = $"{dataFolder}/PRESENZA_DI_POOL_CAPOFILA_E_NON_POOL_TOTALE_O_VICEVERSA_{DateTime.Now.Ticks}.pdf";
+                var report = new PresenceOfLeadPoolAndNotTotalPoolOrViceVersaReport(
+                 title: "PRESENZA DI POOL CAPOFILA E NON POOL TOTALE O VICEVERSA",
+                 companyName: "09999 - Banca di Prova",
+                 refDate: new DateTime(2018, 09, 30),
+                 tableList: PresenceOfLeadPoolAndNotTotalPoolOrViceVersaReport.GetFakeTable());
+
+                report.ToPdf(dest);
+                MessageBox.Show("Pdf generation has been completed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
+        private void btnTypeOfActivityIncompatibleWithRisksAtMaturity_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        private void btnMonthlyReport_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        private void btnSufferingsReportedWithOtherPhenomena_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        private void btnReportingUnlikelyToPayBySubject_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        private void btnOperationalOverruns_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        private void btnTrespassing_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnSummaryOfPerformanceStatement_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         private void btnOpenDestFolder_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", dataFolder);
         }
 
+        private void lblQuest2_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 
 }

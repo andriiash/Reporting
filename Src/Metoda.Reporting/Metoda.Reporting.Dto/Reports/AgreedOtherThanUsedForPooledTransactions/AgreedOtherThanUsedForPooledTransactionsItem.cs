@@ -5,7 +5,7 @@ namespace Metoda.Reporting.Models
 {
     public class AgreedOtherThanUsedForPooledTransactionsItem : ReportTableItemBase
     {
-        [OutputOrder(1, "Cod.Censito", 2f)]
+        [OutputOrder(1, "Cod. Censito", 2f)]
         public string CodCensito { get; set; }
 
         [OutputOrder(2, "Cubo", 5f)]

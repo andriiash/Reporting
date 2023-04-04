@@ -7,9 +7,11 @@ using System.Collections.Generic;
 
 namespace Metoda.Reporting.Lib.Base
 {
-    public abstract class SubHeaderTabledReport<T> : TabledReport<T> where T : IReportTableItem
+    public abstract class SubHeaderTabledReport<T, RT> : TabledReport<T, RT>
+        where RT : ReportTable<T>
+        where T : IReportTableItem
     {
-        public SubHeaderTabledReport(string title, string companyName, DateTime refDate, IList<ReportTable<T>> tableList)
+        public SubHeaderTabledReport(string title, string companyName, DateTime refDate, IList<RT> tableList)
             : base(title, companyName, refDate, tableList)
         {
         }

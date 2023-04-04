@@ -4,25 +4,26 @@ using System.Collections.Generic;
 
 namespace Metoda.Reporting.Models
 {
-    public class OtherCreditsButImpairedReport : TabledReport<OtherCreditsButImpairedItem>
+    public class OtherCreditsButImpairedReport 
+        : TabledReport<OtherCreditsButImpairedItem, OtherCreditsButImpairedReportTable>
     {
-        public OtherCreditsButImpairedReport(string title, string companyName, DateTime refDate, IList<ReportTable<OtherCreditsButImpairedItem>> tableList)
+        public OtherCreditsButImpairedReport(string title, string companyName, DateTime refDate, IList<OtherCreditsButImpairedReportTable> tableList)
             : base(title, companyName, refDate, tableList)
         {
 
         }
 
-        public static IList<ReportTable<OtherCreditsButImpairedItem>> GetFakeTable()
+        public static IList<OtherCreditsButImpairedReportTable> GetFakeTable()
         {
-            var list = new List<ReportTable<OtherCreditsButImpairedItem>>();
+            var list = new List<OtherCreditsButImpairedReportTable>();
 
-            ReportTable<OtherCreditsButImpairedItem> res;
+            OtherCreditsButImpairedReportTable res;
             var centsitos = new[] { "12345 - Soggetto A", "45687 - Soggetto A", "77295 - Soggetto B" };
 
             Random random = new Random();
             decimal utilizzato;
 
-            res = new ReportTable<OtherCreditsButImpairedItem>();
+            res = new OtherCreditsButImpairedReportTable();
 
             for (int i = 0; i < 5; i++)
                 for (int k = 0; k < centsitos.Length; k++)

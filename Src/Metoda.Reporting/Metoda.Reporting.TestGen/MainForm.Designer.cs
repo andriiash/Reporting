@@ -32,17 +32,18 @@
             this.btnGrantedMajorUsedOrNonUsed = new System.Windows.Forms.Button();
             this.btnOtherCreditsButImpaired = new System.Windows.Forms.Button();
             this.btnAbsenceRegisteredConnected = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature = new System.Windows.Forms.Button();
+            this.btnInconsistencyBetweenOriginalAndResidualDuration = new System.Windows.Forms.Button();
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa = new System.Windows.Forms.Button();
+            this.btnSummaryOfPerformanceStatement = new System.Windows.Forms.Button();
+            this.btnTrespassing = new System.Windows.Forms.Button();
+            this.btnOperationalOverruns = new System.Windows.Forms.Button();
+            this.btnReportingUnlikelyToPayBySubject = new System.Windows.Forms.Button();
+            this.btnSufferingsReportedWithOtherPhenomena = new System.Windows.Forms.Button();
+            this.btnMonthlyReport = new System.Windows.Forms.Button();
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity = new System.Windows.Forms.Button();
             this.btnOpenDestFolder = new System.Windows.Forms.Button();
+            this.lblQuestion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAgreedOtherThanUsedForPooledTransactions
@@ -85,95 +86,105 @@
             this.btnAbsenceRegisteredConnected.UseVisualStyleBackColor = true;
             this.btnAbsenceRegisteredConnected.Click += new System.EventHandler(this.btnAbsenceRegisteredConnected_Click);
             // 
-            // button2
+            // btnGuaranteesConnectedWithOperationsOfACommercialNature
             // 
-            this.button2.Location = new System.Drawing.Point(36, 232);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(214, 49);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "5. Garanzie connesse con operazioni di natura commerciale";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature.Location = new System.Drawing.Point(36, 232);
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature.Name = "btnGuaranteesConnectedWithOperationsOfACommercialNature";
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature.Size = new System.Drawing.Size(214, 49);
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature.TabIndex = 4;
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature.Text = "5. Garanzie connesse con operazioni di natura commerciale";
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature.UseVisualStyleBackColor = true;
+            this.btnGuaranteesConnectedWithOperationsOfACommercialNature.Click += new System.EventHandler(this.btnGuaranteesConnectedWithOperationsOfACommercialNature_Click);
             // 
-            // button3
+            // btnInconsistencyBetweenOriginalAndResidualDuration
             // 
-            this.button3.Location = new System.Drawing.Point(36, 287);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(214, 49);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "6. Incongruenza tra durata originaria e residua";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnInconsistencyBetweenOriginalAndResidualDuration.Location = new System.Drawing.Point(36, 287);
+            this.btnInconsistencyBetweenOriginalAndResidualDuration.Name = "btnInconsistencyBetweenOriginalAndResidualDuration";
+            this.btnInconsistencyBetweenOriginalAndResidualDuration.Size = new System.Drawing.Size(214, 49);
+            this.btnInconsistencyBetweenOriginalAndResidualDuration.TabIndex = 5;
+            this.btnInconsistencyBetweenOriginalAndResidualDuration.Text = "6. Incongruenza tra durata originaria e residua";
+            this.btnInconsistencyBetweenOriginalAndResidualDuration.UseVisualStyleBackColor = true;
+            this.btnInconsistencyBetweenOriginalAndResidualDuration.Click += new System.EventHandler(this.btnInconsistencyBetweenOriginalAndResidualDuration_Click);
             // 
-            // button4
+            // btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa
             // 
-            this.button4.Location = new System.Drawing.Point(36, 342);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(214, 49);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "7. Presenza di pool capofila e non pool totale o viceversa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa.Location = new System.Drawing.Point(36, 342);
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa.Name = "btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa";
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa.Size = new System.Drawing.Size(214, 49);
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa.TabIndex = 6;
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa.Text = "7. Presenza di pool capofila e non pool totale o viceversa";
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa.UseVisualStyleBackColor = true;
+            this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa.Click += new System.EventHandler(this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa_Click);
             // 
-            // button5
+            // btnSummaryOfPerformanceStatement
             // 
-            this.button5.Location = new System.Drawing.Point(291, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(214, 49);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "8. Riepilogo Prospetto Andamentale";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSummaryOfPerformanceStatement.Location = new System.Drawing.Point(291, 12);
+            this.btnSummaryOfPerformanceStatement.Name = "btnSummaryOfPerformanceStatement";
+            this.btnSummaryOfPerformanceStatement.Size = new System.Drawing.Size(214, 49);
+            this.btnSummaryOfPerformanceStatement.TabIndex = 7;
+            this.btnSummaryOfPerformanceStatement.Text = "8. Riepilogo Prospetto Andamentale";
+            this.btnSummaryOfPerformanceStatement.UseVisualStyleBackColor = true;
+            this.btnSummaryOfPerformanceStatement.Click += new System.EventHandler(this.btnSummaryOfPerformanceStatement_Click);
             // 
-            // button6
+            // btnTrespassing
             // 
-            this.button6.Location = new System.Drawing.Point(291, 67);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(214, 49);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "9. Sconfinamenti";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnTrespassing.Location = new System.Drawing.Point(291, 67);
+            this.btnTrespassing.Name = "btnTrespassing";
+            this.btnTrespassing.Size = new System.Drawing.Size(214, 49);
+            this.btnTrespassing.TabIndex = 8;
+            this.btnTrespassing.Text = "9. Sconfinamenti";
+            this.btnTrespassing.UseVisualStyleBackColor = true;
+            this.btnTrespassing.Click += new System.EventHandler(this.btnTrespassing_Click);
             // 
-            // button7
+            // btnOperationalOverruns
             // 
-            this.button7.Location = new System.Drawing.Point(291, 122);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(214, 49);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "10. Sconfinamenti Operativi";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnOperationalOverruns.Location = new System.Drawing.Point(291, 122);
+            this.btnOperationalOverruns.Name = "btnOperationalOverruns";
+            this.btnOperationalOverruns.Size = new System.Drawing.Size(214, 49);
+            this.btnOperationalOverruns.TabIndex = 9;
+            this.btnOperationalOverruns.Text = "10. Sconfinamenti Operativi";
+            this.btnOperationalOverruns.UseVisualStyleBackColor = true;
+            this.btnOperationalOverruns.Click += new System.EventHandler(this.btnOperationalOverruns_Click);
             // 
-            // button8
+            // btnReportingUnlikelyToPayBySubject
             // 
-            this.button8.Location = new System.Drawing.Point(291, 177);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(214, 49);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "11. Segnalazione inadempienze probabili per soggetto";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnReportingUnlikelyToPayBySubject.Location = new System.Drawing.Point(291, 177);
+            this.btnReportingUnlikelyToPayBySubject.Name = "btnReportingUnlikelyToPayBySubject";
+            this.btnReportingUnlikelyToPayBySubject.Size = new System.Drawing.Size(214, 49);
+            this.btnReportingUnlikelyToPayBySubject.TabIndex = 10;
+            this.btnReportingUnlikelyToPayBySubject.Text = "11. Segnalazione inadempienze probabili per soggetto";
+            this.btnReportingUnlikelyToPayBySubject.UseVisualStyleBackColor = true;
+            this.btnReportingUnlikelyToPayBySubject.Click += new System.EventHandler(this.btnReportingUnlikelyToPayBySubject_Click);
             // 
-            // button9
+            // btnSufferingsReportedWithOtherPhenomena
             // 
-            this.button9.Location = new System.Drawing.Point(291, 232);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(214, 49);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "12. Sofferenze segnalate con altri fenomeni";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnSufferingsReportedWithOtherPhenomena.Location = new System.Drawing.Point(291, 232);
+            this.btnSufferingsReportedWithOtherPhenomena.Name = "btnSufferingsReportedWithOtherPhenomena";
+            this.btnSufferingsReportedWithOtherPhenomena.Size = new System.Drawing.Size(214, 49);
+            this.btnSufferingsReportedWithOtherPhenomena.TabIndex = 11;
+            this.btnSufferingsReportedWithOtherPhenomena.Text = "12. Sofferenze segnalate con altri fenomeni";
+            this.btnSufferingsReportedWithOtherPhenomena.UseVisualStyleBackColor = true;
+            this.btnSufferingsReportedWithOtherPhenomena.Click += new System.EventHandler(this.btnSufferingsReportedWithOtherPhenomena_Click);
             // 
-            // button10
+            // btnMonthlyReport
             // 
-            this.button10.Location = new System.Drawing.Point(291, 287);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(214, 49);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "13. Stampa PDF Segnalazione Mensile";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnMonthlyReport.Location = new System.Drawing.Point(291, 287);
+            this.btnMonthlyReport.Name = "btnMonthlyReport";
+            this.btnMonthlyReport.Size = new System.Drawing.Size(214, 49);
+            this.btnMonthlyReport.TabIndex = 12;
+            this.btnMonthlyReport.Text = "13. Stampa PDF Segnalazione Mensile";
+            this.btnMonthlyReport.UseVisualStyleBackColor = true;
+            this.btnMonthlyReport.Click += new System.EventHandler(this.btnMonthlyReport_Click);
             // 
-            // button11
+            // btnTypeOfActivityIncompatibleWithRisksAtMaturity
             // 
-            this.button11.Location = new System.Drawing.Point(291, 342);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(214, 49);
-            this.button11.TabIndex = 13;
-            this.button11.Text = "14. Tipo attività incompatibile con Rischi a scadenza";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity.Location = new System.Drawing.Point(291, 342);
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity.Name = "btnTypeOfActivityIncompatibleWithRisksAtMaturity";
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity.Size = new System.Drawing.Size(214, 49);
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity.TabIndex = 13;
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity.Text = "14. Tipo attività incompatibile con Rischi a scadenza";
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity.UseVisualStyleBackColor = true;
+            this.btnTypeOfActivityIncompatibleWithRisksAtMaturity.Click += new System.EventHandler(this.btnTypeOfActivityIncompatibleWithRisksAtMaturity_Click);
             // 
             // btnOpenDestFolder
             // 
@@ -186,22 +197,34 @@
             this.btnOpenDestFolder.UseVisualStyleBackColor = true;
             this.btnOpenDestFolder.Click += new System.EventHandler(this.btnOpenDestFolder_Click);
             // 
+            // lblQuestion
+            // 
+            this.lblQuestion.AutoSize = true;
+            this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblQuestion.Location = new System.Drawing.Point(-1, 184);
+            this.lblQuestion.Name = "lblQuestion";
+            this.lblQuestion.Size = new System.Drawing.Size(35, 37);
+            this.lblQuestion.TabIndex = 15;
+            this.lblQuestion.Text = "?";
+            // 
             // frmMainReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 457);
+            this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.btnOpenDestFolder);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnTypeOfActivityIncompatibleWithRisksAtMaturity);
+            this.Controls.Add(this.btnMonthlyReport);
+            this.Controls.Add(this.btnSufferingsReportedWithOtherPhenomena);
+            this.Controls.Add(this.btnReportingUnlikelyToPayBySubject);
+            this.Controls.Add(this.btnOperationalOverruns);
+            this.Controls.Add(this.btnTrespassing);
+            this.Controls.Add(this.btnSummaryOfPerformanceStatement);
+            this.Controls.Add(this.btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa);
+            this.Controls.Add(this.btnInconsistencyBetweenOriginalAndResidualDuration);
+            this.Controls.Add(this.btnGuaranteesConnectedWithOperationsOfACommercialNature);
             this.Controls.Add(this.btnAbsenceRegisteredConnected);
             this.Controls.Add(this.btnOtherCreditsButImpaired);
             this.Controls.Add(this.btnGrantedMajorUsedOrNonUsed);
@@ -213,6 +236,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rapporti";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -222,17 +246,18 @@
         private System.Windows.Forms.Button btnGrantedMajorUsedOrNonUsed;
         private System.Windows.Forms.Button btnOtherCreditsButImpaired;
         private System.Windows.Forms.Button btnAbsenceRegisteredConnected;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnGuaranteesConnectedWithOperationsOfACommercialNature;
+        private System.Windows.Forms.Button btnInconsistencyBetweenOriginalAndResidualDuration;
+        private System.Windows.Forms.Button btnPresenceOfLeadPoolAndNotTotalPoolOrViceVersa;
+        private System.Windows.Forms.Button btnSummaryOfPerformanceStatement;
+        private System.Windows.Forms.Button btnTrespassing;
+        private System.Windows.Forms.Button btnOperationalOverruns;
+        private System.Windows.Forms.Button btnReportingUnlikelyToPayBySubject;
+        private System.Windows.Forms.Button btnSufferingsReportedWithOtherPhenomena;
+        private System.Windows.Forms.Button btnMonthlyReport;
+        private System.Windows.Forms.Button btnTypeOfActivityIncompatibleWithRisksAtMaturity;
         private System.Windows.Forms.Button btnOpenDestFolder;
+        private System.Windows.Forms.Label lblQuestion;
     }
 }
 

@@ -5,31 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="GuaranteesConnectedWithOperationsOfACommercialNature\**" />
-    <Compile Remove="InconsistencyBetweenOriginalAndResidualDuration\**" />
     <Compile Remove="MonthlyReport\**" />
     <Compile Remove="OperationalOverruns\**" />
-    <Compile Remove="PresenceOfLeadPoolAndNotTotalPoolOrViceVersa\**" />
     <Compile Remove="ReportingUnlikelyToPayBySubject\**" />
     <Compile Remove="SufferingsReportedWithOtherPhenomena\**" />
     <Compile Remove="SummaryOfPerformanceStatement\**" />
     <Compile Remove="Trespassing\**" />
     <Compile Remove="TypeOfActivityIncompatibleWithRisksAtMaturity\**" />
-    <EmbeddedResource Remove="GuaranteesConnectedWithOperationsOfACommercialNature\**" />
-    <EmbeddedResource Remove="InconsistencyBetweenOriginalAndResidualDuration\**" />
     <EmbeddedResource Remove="MonthlyReport\**" />
     <EmbeddedResource Remove="OperationalOverruns\**" />
-    <EmbeddedResource Remove="PresenceOfLeadPoolAndNotTotalPoolOrViceVersa\**" />
     <EmbeddedResource Remove="ReportingUnlikelyToPayBySubject\**" />
     <EmbeddedResource Remove="SufferingsReportedWithOtherPhenomena\**" />
     <EmbeddedResource Remove="SummaryOfPerformanceStatement\**" />
     <EmbeddedResource Remove="Trespassing\**" />
     <EmbeddedResource Remove="TypeOfActivityIncompatibleWithRisksAtMaturity\**" />
-    <None Remove="GuaranteesConnectedWithOperationsOfACommercialNature\**" />
-    <None Remove="InconsistencyBetweenOriginalAndResidualDuration\**" />
     <None Remove="MonthlyReport\**" />
     <None Remove="OperationalOverruns\**" />
-    <None Remove="PresenceOfLeadPoolAndNotTotalPoolOrViceVersa\**" />
     <None Remove="ReportingUnlikelyToPayBySubject\**" />
     <None Remove="SufferingsReportedWithOtherPhenomena\**" />
     <None Remove="SummaryOfPerformanceStatement\**" />

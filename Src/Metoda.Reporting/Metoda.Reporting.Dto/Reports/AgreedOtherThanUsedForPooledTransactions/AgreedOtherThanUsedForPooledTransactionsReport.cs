@@ -4,18 +4,20 @@ using System.Collections.Generic;
 
 namespace Metoda.Reporting.Models
 {
-    public class AgreedOtherThanUsedForPooledTransactionsReport : TabledReport<AgreedOtherThanUsedForPooledTransactionsItem>
+    public class AgreedOtherThanUsedForPooledTransactionsReport 
+        : TabledReport<AgreedOtherThanUsedForPooledTransactionsItem,
+            AgreedOtherThanUsedForPooledTransactionsReportTable>
     {
-        public AgreedOtherThanUsedForPooledTransactionsReport(string title, string companyName, DateTime refDate, IList<ReportTable<AgreedOtherThanUsedForPooledTransactionsItem>> tableList)
+        public AgreedOtherThanUsedForPooledTransactionsReport(string title, string companyName, DateTime refDate, IList<AgreedOtherThanUsedForPooledTransactionsReportTable> tableList)
             : base(title, companyName, refDate, tableList)
         {
         }
 
-        public static IList<ReportTable<AgreedOtherThanUsedForPooledTransactionsItem>> GetFakeTable()
+        public static IList<AgreedOtherThanUsedForPooledTransactionsReportTable> GetFakeTable()
         {
-            var list = new List<ReportTable<AgreedOtherThanUsedForPooledTransactionsItem>>();
+            var list = new List<AgreedOtherThanUsedForPooledTransactionsReportTable>();
 
-            ReportTable<AgreedOtherThanUsedForPooledTransactionsItem> res;
+            AgreedOtherThanUsedForPooledTransactionsReportTable res;
             var centsitos = new[] { "12345 - Soggetto A", "45687 - Soggetto A", "77295 - Soggetto B" };
 
             Random random = new Random();
@@ -23,7 +25,7 @@ namespace Metoda.Reporting.Models
 
             for (int k = 0; k < centsitos.Length; k++)
             {
-                res = new ReportTable<AgreedOtherThanUsedForPooledTransactionsItem>();
+                res = new AgreedOtherThanUsedForPooledTransactionsReportTable();
                 for (int i = 0; i < 20; i++)
                 {
                     accordato = random.Next(4000, 10000);

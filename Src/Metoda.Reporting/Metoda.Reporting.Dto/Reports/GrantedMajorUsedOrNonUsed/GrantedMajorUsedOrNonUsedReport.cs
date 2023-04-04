@@ -4,24 +4,26 @@ using System.Collections.Generic;
 
 namespace Metoda.Reporting.Models
 {
-    public class GrantedMajorUsedOrNonUsedReport : TabledReport<GrantedMajorUsedOrNonUsedItem>
+    public class GrantedMajorUsedOrNonUsedReport 
+        : TabledReport<GrantedMajorUsedOrNonUsedItem, GrantedMajorUsedOrNonUsedReportTable>
     {
-        public GrantedMajorUsedOrNonUsedReport(string title, string companyName, DateTime refDate, IList<ReportTable<GrantedMajorUsedOrNonUsedItem>> tableList)
+        public GrantedMajorUsedOrNonUsedReport(string title, string companyName, DateTime refDate, 
+            IList<GrantedMajorUsedOrNonUsedReportTable> tableList)
             : base(title, companyName, refDate, tableList)
         {
         }
 
-        public static IList<ReportTable<GrantedMajorUsedOrNonUsedItem>> GetFakeTable()
+        public static IList<GrantedMajorUsedOrNonUsedReportTable> GetFakeTable()
         {
-            var list = new List<ReportTable<GrantedMajorUsedOrNonUsedItem>>();
+            var list = new List<GrantedMajorUsedOrNonUsedReportTable>();
 
-            ReportTable<GrantedMajorUsedOrNonUsedItem> res;
+            GrantedMajorUsedOrNonUsedReportTable res;
             var centsitos = new[] { "12345 - Soggetto A", "45687 - Soggetto A", "77295 - Soggetto B" };
 
             Random random = new Random();
             decimal accordato, utilizzato;
 
-            res = new ReportTable<GrantedMajorUsedOrNonUsedItem>();
+            res = new GrantedMajorUsedOrNonUsedReportTable();
 
             for (int k = 0; k < centsitos.Length; k++)
             {
