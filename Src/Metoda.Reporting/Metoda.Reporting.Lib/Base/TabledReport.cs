@@ -14,12 +14,14 @@ namespace Metoda.Reporting.Lib.Base
         where T : IReportTableItem
 
     {
+        public string TotalLabel { get; set; }
         public IList<RT> TableList { get; private set; }
 
-        public TabledReport(string title, string companyName, DateTime refDate, IList<RT> tableList)
+        public TabledReport(string title, string companyName, DateTime refDate, IList<RT> tableList, string totalLabel = "Somma totale")
             : base(title, companyName, refDate)
         {
             TableList = tableList;
+            TotalLabel = totalLabel;
         }
 
         protected override void RenderDetailsTable(Document doc)
@@ -39,7 +41,7 @@ namespace Metoda.Reporting.Lib.Base
                         tableDetals, 
                         TableList[0].Columns, 
                         TableList.SelectMany(_ => _.Items).ToList(),
-                        "Somma totale"
+                        TotalLabel
                                 );
                 }
 

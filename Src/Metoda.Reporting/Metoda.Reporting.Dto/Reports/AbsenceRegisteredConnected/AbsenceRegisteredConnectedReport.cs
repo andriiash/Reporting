@@ -1,8 +1,6 @@
 ﻿using Metoda.Reporting.Lib.Base;
-using Metoda.Reporting.Lib.Base.Contracts;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Metoda.Reporting.Models
 {

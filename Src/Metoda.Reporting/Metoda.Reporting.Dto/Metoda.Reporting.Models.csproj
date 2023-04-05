@@ -9,21 +9,18 @@
     <Compile Remove="OperationalOverruns\**" />
     <Compile Remove="ReportingUnlikelyToPayBySubject\**" />
     <Compile Remove="SufferingsReportedWithOtherPhenomena\**" />
-    <Compile Remove="SummaryOfPerformanceStatement\**" />
     <Compile Remove="Trespassing\**" />
     <Compile Remove="TypeOfActivityIncompatibleWithRisksAtMaturity\**" />
     <EmbeddedResource Remove="MonthlyReport\**" />
     <EmbeddedResource Remove="OperationalOverruns\**" />
     <EmbeddedResource Remove="ReportingUnlikelyToPayBySubject\**" />
     <EmbeddedResource Remove="SufferingsReportedWithOtherPhenomena\**" />
-    <EmbeddedResource Remove="SummaryOfPerformanceStatement\**" />
     <EmbeddedResource Remove="Trespassing\**" />
     <EmbeddedResource Remove="TypeOfActivityIncompatibleWithRisksAtMaturity\**" />
     <None Remove="MonthlyReport\**" />
     <None Remove="OperationalOverruns\**" />
     <None Remove="ReportingUnlikelyToPayBySubject\**" />
     <None Remove="SufferingsReportedWithOtherPhenomena\**" />
-    <None Remove="SummaryOfPerformanceStatement\**" />
     <None Remove="Trespassing\**" />
     <None Remove="TypeOfActivityIncompatibleWithRisksAtMaturity\**" />
   </ItemGroup>

@@ -18,11 +18,13 @@ namespace Metoda.Reporting.Lib.Base
     {
         public IList<ReportColumn> Columns { get; private set; }
         public IList<T> Items { get; private set; }
+        public string TotalLabel { get; set; }
 
-        public ReportTable(IList<T> items = null)
+        public ReportTable(IList<T> items = null, string totalLabel = "Totale")
         {
             Items = items ?? new List<T>();
             Columns = OutputOrderAttribute.GetReportColumns(typeof(T));
+            TotalLabel = totalLabel;
         }
 
         public virtual void PrintToPdf(Table table, bool hasTotal = true)
@@ -34,8 +36,9 @@ namespace Metoda.Reporting.Lib.Base
                 foreach (var val in item.GetValueArray(propInfos))
                 {
                     Cell cell = new Cell()
-                        .Add(new Paragraph(val).SetMultipliedLeading(0.9f))
-                        .SetVerticalAlignment(VerticalAlignment.MIDDLE);
+                        .Add(new Paragraph(val.Item2).SetMultipliedLeading(0.9f))
+                        .SetVerticalAlignment(VerticalAlignment.MIDDLE)
+                        .SetTextAlignment(val.Item1);
 
                     table.AddCell(cell);
                 }
@@ -43,7 +46,7 @@ namespace Metoda.Reporting.Lib.Base
 
             if (hasTotal)
             {
-                PrintTotalToPdf(table, Columns, Items, "Totale");
+                PrintTotalToPdf(table, Columns, Items, TotalLabel);
             }
         }
 

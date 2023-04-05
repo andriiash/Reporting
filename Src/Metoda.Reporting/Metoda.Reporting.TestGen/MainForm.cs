@@ -158,6 +158,25 @@ namespace Metoda.Reporting.TestGen
             }
         }
 
+        private void btnSummaryOfPerformanceStatement_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dest = $"{dataFolder}/RIEPILOGO_PROSPETTO_ANDAMENTALE_{DateTime.Now.Ticks}.pdf";
+                var report = new SummaryOfPerformanceStatementReport(
+                 title: "RIEPILOGO PROSPETTO ANDAMENTALE",
+                 companyName: "09999 - Banca di Prova",
+                 refDate: new DateTime(2018, 09, 30),
+                 tableList: SummaryOfPerformanceStatementReport.GetFakeTable());
+
+                report.ToPdf(dest);
+                MessageBox.Show("Pdf generation has been completed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void btnTypeOfActivityIncompatibleWithRisksAtMaturity_Click(object sender, EventArgs e)
         {
@@ -189,10 +208,7 @@ namespace Metoda.Reporting.TestGen
             MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnSummaryOfPerformanceStatement_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Sorry, It's not implemented yet", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+       
 
         private void btnOpenDestFolder_Click(object sender, EventArgs e)
         {

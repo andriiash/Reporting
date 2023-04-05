@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using iText.Layout.Properties;
+using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Metoda.Reporting.Lib.Base.Contracts
 {
     public interface IReportTableItem
     {
-        string[] GetValueArray(IList<PropertyInfo> itemInfo);
+        ValueTuple<TextAlignment, string>[] GetValueArray(IList<PropertyInfo> itemInfo);
     }
 }
